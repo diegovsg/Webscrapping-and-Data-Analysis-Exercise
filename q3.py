@@ -6,28 +6,29 @@ data = pd.read_json('dados_compras.json')
 
 print("------------------Exploração dos dados-----------------")
 # #Verificar valores iniciais do conjunto de dados
-# data.head()
-# print(data.head())
+data.head()
+print(data.head())
+print(data)
 # #vefiricar valores ausentes nos dados
-# data.isnull().sum()
-# print(data.isnull().sum())
+data.isnull().sum()
+print(data.isnull().sum())
 # #Identifique a quantidade total de compras realizadas.
 qtd_total_compras_realizadas = len(data)
-# print(f"O total de compras realizadas foi de: {qtd_total_compras_realizadas}")
+print(f"O total de compras realizadas foi de: {qtd_total_compras_realizadas}")
 
 print("------------------Análise de Compras-------------------")
 # Calcule a média, o valor mínimo e máximo gasto por compra
 media_gasto = data['Valor'].mean()
 valor_minimo = data['Valor'].min()
 valor_maximo = data['Valor'].max()
-# print(f"Média de gasto por compra: {media_gasto:.2f}")
-# print(f"Valor mínimo gasto por compra: {valor_minimo:.2f}")
-# print(f"Valor máximo gasto por compra: {valor_maximo:.2f}")
+print(f"Média de gasto por compra: {media_gasto:.2f}")
+print(f"Valor mínimo gasto por compra: {valor_minimo:.2f}")
+print(f"Valor máximo gasto por compra: {valor_maximo:.2f}")
 # # Determine o produto mais caro e o produto mais barato
 produto_mais_caro = data[data['Valor'] == valor_maximo]["Nome do Item"].iloc[0]
 produto_mais_barato = data[data['Valor'] == valor_minimo]["Nome do Item"].iloc[0]
-# print(f"Produto mais caro: {produto_mais_caro}")
-# print(f"Produto mais barato: {produto_mais_barato}")
+print(f"Produto mais caro: {produto_mais_caro}")
+print(f"Produto mais barato: {produto_mais_barato}")
 
 print("------------------Segmentação por Gênero-------------------")
 # Analise a distribuição de gênero entre os consumidores

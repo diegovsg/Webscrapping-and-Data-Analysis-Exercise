@@ -59,8 +59,7 @@ plt.ylabel('Valor Total Gasto')
 plt.tight_layout()
 plt.show()
 
-# idade x jogo
-# Criar um gráfico de barras de idade x jogo
+# Criar um gráfico de barras de Sexo x Valor
 plt.figure(figsize=(10 , 10))
 jogo_idade = data.groupby('Sexo')['Valor'].sum()
 jogo_idade.plot(kind='bar', color=cores_pizza)

@@ -33,10 +33,10 @@ print(f"Produto mais barato: {produto_mais_barato}")
 print("------------------Segmentação por Gênero-------------------")
 # Analise a distribuição de gênero entre os consumidores
 genero_distribuicao = data['Sexo'].value_counts()
-# print(genero_distribuicao)
+print(genero_distribuicao)
 # Calcule o valor total gasto em compras por gênero
 valor_total_por_genero = data.groupby('Sexo')['Valor'].sum()
-# print(valor_total_por_genero)
+print(valor_total_por_genero)
 print("------------------Visualização de Dados-------------------")
 plt.figure(figsize=(10, 6))
 cores_pizza = ['#9575cd', '#b0bec5', '#3f51b5']
@@ -47,6 +47,8 @@ genero_distribuicao.plot(kind='bar', color=['#8bc34a', '#03a9f4', '#e57373'])
 plt.title('Quantidades de compras por gênero')
 plt.xlabel('Gênero')
 plt.ylabel('Quantidade')
+plt.tight_layout()
+plt.show()
 
 # Gráfico de barras para valor total gasto por gênero
 plt.figure(figsize=(6, 6))
@@ -54,9 +56,18 @@ valor_total_por_genero.plot(kind='pie', autopct='%1.1f%%', colors=['#9575cd', '#
 plt.title('Porcentagem de gasto por gênero')
 plt.xlabel('Gênero')
 plt.ylabel('Valor Total Gasto')
+plt.tight_layout()
+plt.show()
 
-# Criar um gráfico de pizza com porcentagens e valores numéricos
-plt.subplot(1, 2, 1)
-valor_total_por_genero.plot(kind='pie', autopct=lambda p: '{:.1f}%\n({:.0f})'.format(p, p * sum(valor_total_por_genero) / 100), colors=cores_pizza)
-plt.title('Porcentagem de gasto por gênero')
-plt.ylabel('')
+# idade x jogo
+# Criar um gráfico de barras de idade x jogo
+plt.figure(figsize=(10 , 10))
+jogo_idade = data.groupby('Sexo')['Valor'].sum()
+jogo_idade.plot(kind='bar', color=cores_pizza)
+plt.title('Valor Total Gasto por Gênero ')
+plt.xlabel('Gênero')
+plt.ylabel('Valor Total Gasto')
+plt.xticks(rotation=0)
+
+plt.tight_layout()
+plt.show()
